@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matching Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>招聘和求职匹配平台</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>求职者信息录入</h2>
+            <form id="jobSeekerForm">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">邮箱:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="skills">技能:</label>
+                <input type="text" id="skills" name="skills" required>
+                <label for="experience">工作经验:</label>
+                <textarea id="experience" name="experience" required></textarea>
+                <button type="submit">提交</button>
+            </form>
+        </section>
+        <section class="results-section">
+            <h2>匹配的职位</h2>
+            <div id="results"></div>
+        </section>
+        <section class="resume-section">
+            <h2>生成简历</h2>
+            <button id="generateResume">生成简历</button>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
