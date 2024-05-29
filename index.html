@@ -3,37 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Matching Platform</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .resume {
+            background: #fff;
+            padding: 20px;
+            width: 60%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resume h1 {
+            margin-top: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 5px;
+            font-size: 20px;
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>招聘和求职匹配平台</h1>
-    </header>
-    <main>
-        <section class="form-section">
-            <h2>求职者信息录入</h2>
-            <form id="jobSeekerForm">
-                <label for="name">姓名:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">邮箱:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="skills">技能:</label>
-                <input type="text" id="skills" name="skills" required>
-                <label for="experience">工作经验:</label>
-                <textarea id="experience" name="experience" required></textarea>
-                <button type="submit">提交</button>
-            </form>
-        </section>
-        <section class="results-section">
-            <h2>匹配的职位</h2>
-            <div id="results"></div>
-        </section>
-        <section class="resume-section">
-            <h2>生成简历</h2>
-            <button id="generateResume">生成简历</button>
-        </section>
-    </main>
-    <script src="scripts.js"></script>
+    <div class="resume">
+        <h1>John Doe</h1>
+        <div class="contact-info section">
+            <p>Email: john.doe@example.com | Phone: (123) 456-7890</p>
+            <p>123 Main St, Anytown, USA</p>
+        </div>
+        <div class="education section">
+            <h2>Education</h2>
+            <p>B.Sc. in Computer Science, University of Somewhere</p>
+        </div>
+        <div class="experience section">
+            <h2>Experience</h2>
+            <p>Software Engineer at TechCorp (2020-Present)</p>
+            <p>Intern at WebSolutions (2019-2020)</p>
+        </div>
+        <div class="skills section">
+            <h2>Skills</h2>
+            <p>Python, JavaScript, HTML, CSS, React, Node.js</p>
+        </div>
+        <div class="languages section">
+            <h2>Languages</h2>
+            <p>English, Spanish</p>
+        </div>
+    </div>
 </body>
 </html>
