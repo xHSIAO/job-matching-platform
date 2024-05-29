@@ -3,64 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f9;
-        }
-        .resume {
-            background: #fff;
-            padding: 20px;
-            width: 60%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .resume h1 {
-            margin-top: 0;
-            font-size: 24px;
-            text-align: center;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 5px;
-            font-size: 20px;
-            margin-top: 0;
-        }
-    </style>
+    <title>Job Matching Platform</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="resume">
-        <h1>John Doe</h1>
-        <div class="contact-info section">
-            <p>Email: john.doe@example.com | Phone: (123) 456-7890</p>
-            <p>123 Main St, Anytown, USA</p>
-        </div>
-        <div class="education section">
-            <h2>Education</h2>
-            <p>B.Sc. in Computer Science, University of Somewhere</p>
-        </div>
-        <div class="experience section">
-            <h2>Experience</h2>
-            <p>Software Engineer at TechCorp (2020-Present)</p>
-            <p>Intern at WebSolutions (2019-2020)</p>
-        </div>
-        <div class="skills section">
-            <h2>Skills</h2>
-            <p>Python, JavaScript, HTML, CSS, React, Node.js</p>
-        </div>
-        <div class="languages section">
-            <h2>Languages</h2>
-            <p>English, Spanish</p>
-        </div>
-    </div>
+    <h1>Job Seekers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Skills</th>
+                <th>Experience</th>
+                <th>Resume</th>
+            </tr>
+        </thead>
+        <tbody id="jobSeekersTable">
+            <!-- Job seekers data will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+    <script>
+        // Example data - this should be replaced with actual data from Airtable or your backend
+        const jobSeekers = [
+            {
+                name: 'John Doe',
+                email: 'john.doe@example.com',
+                phone: '123-456-7890',
+                skills: ['Python', 'JavaScript'],
+                experience: 3
+            },
+            {
+                name: 'Jane Smith',
+                email: 'jane.smith@example.com',
+                phone: '987-654-3210',
+                skills: ['HTML', 'CSS'],
+                experience: 2
+            }
+        ];
+
+        const jobSeekersTable = document.getElementById('jobSeekersTable');
+
+        jobSeekers.forEach(jobSeeker => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${jobSeeker.name}</td>
+                <td>${jobSeeker.email}</td>
+                <td>${jobSeeker.phone}</td>
+                <td>${jobSeeker.skills.join(', ')}</td>
+                <td>${jobSeeker.experience} years</td>
+                <td><a href="resume_template.html?name=${encodeURIComponent(jobSeeker.name)}&email=${encodeURIComponent(jobSeeker.email)}&phone=${encodeURIComponent(jobSeeker.phone)}&skills=${encodeURIComponent(jobSeeker.skills.join(', '))}&experience=${jobSeeker.experience}">View Resume</a></td>
+            `;
+            jobSeekersTable.appendChild(row);
+        });
+    </script>
 </body>
 </html>
