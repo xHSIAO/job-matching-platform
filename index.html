@@ -7,55 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Job Seekers</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Skills</th>
-                <th>Experience</th>
-                <th>Resume</th>
-            </tr>
-        </thead>
-        <tbody id="jobSeekersTable">
-            <!-- Job seekers data will be inserted here by JavaScript -->
-        </tbody>
-    </table>
-    <script>
-        // Example data - this should be replaced with actual data from Airtable or your backend
-        const jobSeekers = [
-            {
-                name: 'John Doe',
-                email: 'john.doe@example.com',
-                phone: '123-456-7890',
-                skills: ['Python', 'JavaScript'],
-                experience: 3
-            },
-            {
-                name: 'Jane Smith',
-                email: 'jane.smith@example.com',
-                phone: '987-654-3210',
-                skills: ['HTML', 'CSS'],
-                experience: 2
-            }
-        ];
-
-        const jobSeekersTable = document.getElementById('jobSeekersTable');
-
-        jobSeekers.forEach(jobSeeker => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${jobSeeker.name}</td>
-                <td>${jobSeeker.email}</td>
-                <td>${jobSeeker.phone}</td>
-                <td>${jobSeeker.skills.join(', ')}</td>
-                <td>${jobSeeker.experience} years</td>
-                <td><a href="resume_template.html?name=${encodeURIComponent(jobSeeker.name)}&email=${encodeURIComponent(jobSeeker.email)}&phone=${encodeURIComponent(jobSeeker.phone)}&skills=${encodeURIComponent(jobSeeker.skills.join(', '))}&experience=${jobSeeker.experience}">View Resume</a></td>
-            `;
-            jobSeekersTable.appendChild(row);
-        });
-    </script>
+    <header>
+        <h1>招聘和求职匹配平台</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>求职者信息录入</h2>
+            <form id="jobSeekerForm">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">邮箱:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="skills">技能:</label>
+                <input type="text" id="skills" name="skills" required>
+                <label for="experience">工作经验:</label>
+                <textarea id="experience" name="experience" required></textarea>
+                <button type="submit">提交</button>
+            </form>
+        </section>
+        <section class="results-section">
+            <h2>匹配的职位</h2>
+            <div id="results"></div>
+        </section>
+        <section class="resume-section">
+            <h2>生成简历</h2>
+            <button id="generateResume">生成简历</button>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
 </body>
 </html>
